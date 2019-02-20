@@ -20,7 +20,7 @@ class CreateSettingsTable extends Migration
             $table->string('group')->nullable();
             $table->text('value');
             $table->string('type');
-            $table->json('options')->nullable();
+            $table->text('options')->nullable();
             $table->string('description')->nullable();
             $table->integer('order')->default(99);
             $table->boolean('status')->default(true);

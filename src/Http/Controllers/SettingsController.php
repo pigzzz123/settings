@@ -26,6 +26,9 @@ class SettingsController extends Controller
      */
     public function index(Content $content)
     {
+        $options = "on:1|启用|primary
+        off:0|禁用|default";
+        dd(parse_attr($options));
         return $content
             ->header('配置')
             ->description('列表')
@@ -213,10 +216,6 @@ class SettingsController extends Controller
         foreach ($items as $key => $type) {
             if (!isset($data[$key])) {
                 switch ($type) {
-                    // 开关
-                    case 'switch':
-                        $data[$key] = 0;
-                        break;
                     case 'checkbox':
                         $data[$key] = '';
                         break;
@@ -229,7 +228,8 @@ class SettingsController extends Controller
                 switch ($type) {
                     // 开关
                     case 'switch':
-                        $data[$key] = 1;
+                        $states = ['on' => 1, 'off' => 0];
+                        $data[$key] = $states[$data[$key]];
                         break;
                 }
             }
