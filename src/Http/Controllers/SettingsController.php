@@ -251,6 +251,9 @@ class SettingsController extends Controller
             $className = Form::$availableFields[$setting->type];
             $element = (new $className($setting->key, [$setting->name]));
             switch ($setting->type) {
+                case 'switch':
+                    $element->default($setting->value);
+                    break;
                 case 'select':
                 case 'multipleSelect':
                 case 'radio':
