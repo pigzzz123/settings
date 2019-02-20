@@ -37,9 +37,14 @@ php artisan vendor:publish --provider=Pigzzz\Settings\SettingsServiceProvider.ph
 
 ## 使用
 
-**添加菜单**
+#### 添加菜单
 - /settings 配置列表
 - /settings/display 配置参数
+
+#### 全局使用
+```php
+setting('key', 'default') 
+```
 
 License
 ------------
