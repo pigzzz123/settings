@@ -26,9 +26,6 @@ class SettingsController extends Controller
      */
     public function index(Content $content)
     {
-        $options = "on:1|启用|primary
-        off:0|禁用|default";
-        dd(parse_attr($options));
         return $content
             ->header('配置')
             ->description('列表')
